@@ -13,10 +13,12 @@ span {
 }
 </style>
  <body style="background-color:midnightblue">
+  
   <span index="nosupport">
   Hi Senpai~ <br />
   I'm going to hide until you update to a new browser.
   </span>
+  
   <span index="1">
 	<img src="https://cosplaycalamity.files.wordpress.com/2014/12/ckjhmq9.jpg"/>
 	<span style="display:inline; position:absolute; top:30%; left:50%; color:white;" >
@@ -31,6 +33,7 @@ span {
 	color: white;"/>
 	
   </span>
+  
   <span index="2">
   <img src="https://cosplaycalamity.files.wordpress.com/2014/12/ckjhmq9.jpg"/>
   <span style="display:inline; position:absolute; top:30%; left:50%; color:white;" >
@@ -38,6 +41,7 @@ span {
 	  I want you to do some things for me first ;)
   </span>
   </span>
+  
   <span index="3">
   &lt; insert third, fourth, fifth picture &gt;
   <img src="https://cosplaycalamity.files.wordpress.com/2014/12/ckjhmq9.jpg"/>
@@ -48,6 +52,7 @@ span {
 	<a onclick="toBadEnd()"><img src="http://i.imgur.com/5dGthfi.jpg" height="200" width="200"></a>
 	<a href="https://www.youtube.com/watch?v=_JAa3NvP6f4"><img src="https://s-media-cache-ak0.pinimg.com/originals/02/62/b2/0262b25a39e1b5b7a392166b0c76ccd7.jpg" height="200" width="200"></a>
   </span>
+  
   <span index="4">
   <img class="meat" height="75" src="http://www.nationalgrocers.org/images/default-source/default-album/shutterstock_118987798.jpg?sfvrsn=0" />
   <span class="feedme" style="display:inline; position:absolute; top:30%; right:40%; color:red; font-size:100px "> 
@@ -60,6 +65,7 @@ span {
   <span index="5">
    What's the third test?
   </span>
+  
   <span index="badend">
   I'm not very happy with you. Hmph
   </span>
@@ -68,11 +74,14 @@ span {
   Surprise! I've been working on it all the time!
   But I don't think I'm very good at it...
   <img src = "https://pbs.twimg.com/profile_images/580997733797863424/Drgj3NJz.jpg"/>
+  <a onclick="bogosort()"><img src = "https://pbs.twimg.com/profile_images/580997733797863424/Drgj3NJz.jpg" height = "900px"/></a>
+  <span style = "display:inline; position:absolute; top:30%; left:50%; color:white; font-size: 20px">
     Surprise! I've been working on it all the time!
     But I don't think I'm very good at it...
   </span>
   <span class="console" style="display:block">
   
+  <span class="console" style="display:block">
   </span>
   
   </span>
@@ -170,6 +179,7 @@ span {
 			$('.countclock').text(count); 
 			if (count === 0)
 				toBadEnd();
+                
 			}, 
 		1000)
    }
@@ -185,6 +195,7 @@ span {
 			{
 				clearInterval(timervar);
 				advance();
+				toGoodEnd();
 			}
 		})
 		for (var i =0; i < 25; i++)
@@ -197,12 +208,20 @@ span {
 		)
    }
    
+   
+   
    // code for part 5
    
    // code for bad end
    
    // code for good end
     //Processes the file (now in a string) in preperation for shitty sort
+   function toGoodEnd() {
+     $('span[index="'+current_index+'"]').hide();
+     $('span[index="goodend"]').show();
+    }
+   
+   //Processes the file (now in a string) in preperation for shitty sort
    function stringProcessor (sortFile)
    {
     //replace all non-alphanumeric char with a space
@@ -233,6 +252,7 @@ span {
     
     //Bogo sorts the file
     function bogosort (sortFile){
+    function bogosort (){
         var sortFileArray = stringProcessor(sortFile);
     
         sortFileArray = shuffle(sortFileArray);
