@@ -39,8 +39,14 @@ span {
   </span>
   </span>
   <span index="3">
-  who's the cutest kouhai here?
   &lt; insert third, fourth, fifth picture &gt;
+  <img src="https://cosplaycalamity.files.wordpress.com/2014/12/ckjhmq9.jpg"/>
+  <span style="display:inline; position:absolute; top:30%; left:50%; color:white;" >
+	  Who's the cutest kouhai here?
+  </span>
+    <a onclick="advance()"><img src="http://i.imgur.com/WTrtBqE.jpg" height="200" width="200"></a>
+	<a onclick="toBadEnd()"><img src="http://i.imgur.com/5dGthfi.jpg" height="200" width="200"></a>
+	<a href="https://www.youtube.com/watch?v=_JAa3NvP6f4"><img src="https://s-media-cache-ak0.pinimg.com/originals/02/62/b2/0262b25a39e1b5b7a392166b0c76ccd7.jpg"></a>
   </span>
   <span index="4">
   <img class="meat" height="75" src="http://www.nationalgrocers.org/images/default-source/default-album/shutterstock_118987798.jpg?sfvrsn=0" />
@@ -109,7 +115,6 @@ span {
    function handleFileSelect(evt) {
    debugger;
     var files = evt.target.files; // FileList object
-
     // files is a FileList of File objects. List some properties.
     var output = [];
     f = files[0];
@@ -133,6 +138,14 @@ span {
    // This is a text only section, advancing is done by a timeout in part 1
    
    // code for part 3
+
+   
+   function toBadEnd() {
+	$('span[index="'+current_index+'"]').hide();
+    $('span[index="badend"]').show();
+   }
+   
+   
    
    // code for part 4
    
