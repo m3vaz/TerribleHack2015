@@ -43,9 +43,12 @@ span {
   &lt; insert third, fourth, fifth picture &gt;
   </span>
   <span index="4">
-  Feed ME! Are you ready? 3 2 1 .
-  GO 
-  javascript click the floating elements
+  <img class="meat" height="75" src="http://www.nationalgrocers.org/images/default-source/default-album/shutterstock_118987798.jpg?sfvrsn=0" />
+  <span class="feedme" style="display:inline; position:absolute; top:30%; right:40%; color:red; font-size:100px "> 
+	<p>
+	FEED ME
+	</p>
+  </span>
   </span>
   <span index="5">
    What's the third test?
@@ -95,6 +98,10 @@ span {
    $('span[index="'+current_index+'"]').hide();
    current_index++;
    $('span[index="'+current_index+'"]').show();
+   if (current_index === 4)
+	   {
+			initializePart4();
+	   }
    }
    
    // code for part 1
@@ -128,6 +135,36 @@ span {
    // code for part 3
    
    // code for part 4
+   
+   var points=0;
+   
+   function initializePart4()
+   {
+		$('.feedme').fadeOut(3000);
+		initializeMeat();
+		
+		// create the count down clock
+   }
+   
+   function initializeMeat()
+   {
+		// create the meat
+		meat = $('.meat');
+		meat.click(function () {
+			$(this).remove()
+			points ++;
+			if ($('.meat').size() === 0)
+				advance();
+		})
+		for (var i =0; i < 25; i++)
+			meat.after(meat.clone(true, true));
+			
+		$('.meat').each(function() {
+				$(this).css({ position: "absolute", top: ((Math.random() * 70) + 15) + "%", left: ((Math.random() * 70) + 15) + "%" });
+			}
+		
+		)
+   }
    
    // code for part 5
    
