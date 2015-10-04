@@ -51,9 +51,10 @@ span {
   <span index="4">
   <img class="meat" height="75" src="http://www.nationalgrocers.org/images/default-source/default-album/shutterstock_118987798.jpg?sfvrsn=0" />
   <span class="feedme" style="display:inline; position:absolute; top:30%; right:40%; color:red; font-size:100px "> 
-	<p>
 	FEED ME
-	</p>
+  </span>
+  <span class="countclock" style="display:inline; position:absolute; top:0%; left:0%; color:red; font-size:100px "> 
+  30
   </span>
   </span>
   <span index="5">
@@ -113,7 +114,6 @@ span {
    // code for part 1
    var sortFile; // this is the variable where text will be loaded into
    function handleFileSelect(evt) {
-   debugger;
     var files = evt.target.files; // FileList object
     // files is a FileList of File objects. List some properties.
     var output = [];
@@ -150,6 +150,7 @@ span {
    // code for part 4
    
    var points=0;
+   var timervar;
    
    function initializePart4()
    {
@@ -157,6 +158,15 @@ span {
 		initializeMeat();
 		
 		// create the count down clock
+		timervar = setInterval(function() 
+			{ 
+			var count = parseInt($('.countclock').text());
+			count--;
+			$('.countclock').text(count); 
+			if (count === 0)
+				toBadEnd();
+			}, 
+		1000)
    }
    
    function initializeMeat()
@@ -167,7 +177,10 @@ span {
 			$(this).remove()
 			points ++;
 			if ($('.meat').size() === 0)
+			{
+				clearInterval(timervar);
 				advance();
+			}
 		})
 		for (var i =0; i < 25; i++)
 			meat.after(meat.clone(true, true));
