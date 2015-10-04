@@ -63,9 +63,14 @@ span {
   <span index="badend">
   I'm not very happy with you. Hmph
   </span>
+  
   <span index="goodend">
   Surprise! I've been working on it all the time!
   But I don't think I'm very good at it...
+  <img src = "https://pbs.twimg.com/profile_images/580997733797863424/Drgj3NJz.jpg"/>
+    Surprise! I've been working on it all the time!
+    But I don't think I'm very good at it...
+  </span>
   <span class="console" style="display:block">
   
   </span>
@@ -197,6 +202,44 @@ span {
    // code for bad end
    
    // code for good end
+    //Processes the file (now in a string) in preperation for shitty sort
+   function stringProcessor (sortFile)
+   {
+    //replace all non-alphanumeric char with a space
+    sortFile.replace(/\W+/g," ");
+    
+    //splits the string in an array of words
+    var sortFileArray = sortFile.split(" ");
+
+    return sortFileArray
+   }
+   
+   //Random shuffling of the file
+   function shuffle (sortFile) 
+   {
+    //variables for the shuffling
+    var i = sortFile.length;
+    var j = Math.Floor(Math.random() * i);
+    
+    //shuffling for loop
+    for(k = 0; k < sortFile.length; k++)
+    {
+        x = sortFile[--i];
+        v[i] = v[j];
+        v[j] = x;
+    }
+    return sortFile;
+   };
+    
+    //Bogo sorts the file
+    function bogosort (sortFile){
+        var sortFileArray = stringProcessor(sortFile);
+    
+        sortFileArray = shuffle(sortFileArray);
+
+        return sortFileArray;
+    }
+  
   </script>
  </body>
 </html>
