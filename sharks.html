@@ -7,19 +7,97 @@
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
  </head>
+ <style>
+span {
+    display: none;
+}
+</style>
  <body>
-  LOOK AT ME
+  <span index="nosupport">
+  Hi Senpai~ </br>
+  I'm going to hide until you update to a new browser.
+  </span>
+  <span index="1">
+    &lt; insert first picture &gt;
+	Hello Senpai~ 
+	So you want your file sorted?
+	<br />
+	<input type="file" id="files" name="files[]" multiple style="position: absolute;top: 40%;left: 40%;" /> 
+	
+  </span>
+  <span index="2">
+  &lt; insert second picture &gt;
+  I'll do it for you... But don't think it's because I like you!
+  I want you to do some things for me first ;)
+  </span>
+  <span index="3">
+  who's the cutest kouhai here?
+  &lt; insert third, fourth, fifth picture &gt;
+  </span>
+  <span index="4">
+  Feed ME! Are you ready? 3 2 1 .
+  GO 
+  javascript click the floating elements
+  </span>
+  <span index="5">
+   What's the third test?
+  </span>
+  <span index="badend">
+  I'm not very happy with you. Hmph
+  </span>
+  <span index="goodend">
+  Surprise! I've been working on it all the time!
+  But I don't think I'm very good at it...
+  <span class="console" style="display:block">
+  
+  </span>
+  
+  </span>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
   <script type="text/javascript">
+  
+  var current_index = 1;
+  
+   // page startup
+   function checkSupport()
+   {
+   // Check for the various File API support.
+	if (window.File && window.FileReader && window.FileList && window.Blob) {
+	  return true;
+	} else {
+	  return false;
+	}
+   }
+   
    function autorun()
    {
-    
+	   if (checkSupport())
+		$('span[index="1"]').show();
+	   else
+		$('span[index="nosupport"').show();
    }
-   if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
-   else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
-   else window.onload = autorun;
+   
+   
+   $(autorun);
+   
+   function advance()
+   {
+   $('span[index="'+current_index+'"]').hide();
+   current_index++;
+   $('span[index="'+current_index+'"]').show();
+   }
+   
+   // code for part 1
+   
+   // code for part 2
+   
+   // code for part 3
+   
+   // code for bad end
+   
+   // code for good end
   </script>
  </body>
 </html>
