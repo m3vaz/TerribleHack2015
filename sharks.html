@@ -14,21 +14,29 @@ span {
 </style>
  <body style="background-color:midnightblue">
   <span index="nosupport">
-  Hi Senpai~ </br>
+  Hi Senpai~ <br />
   I'm going to hide until you update to a new browser.
   </span>
   <span index="1">
 	<img src="https://cosplaycalamity.files.wordpress.com/2014/12/ckjhmq9.jpg"/>
-	Hello Senpai~ 
+	<span style="display:inline; position:absolute; top:30%; left:50%; color:white;" >
+	Hello Senpai~ <br />
 	So you want your file sorted?
+	</span>
 	<br />
-	<div id="drop_zone" tyle="position: absolute;top: 40%;left: 40%;">Drop files here</div>
+	<input type="file" id="files" name="files[]" multiple style="
+    position: absolute;
+    top: 40%;
+    left: 50%;
+	color: white;"/>
 	
   </span>
   <span index="2">
-  &lt; insert second picture &gt;
-  I'll do it for you... But don't think it's because I like you!
-  I want you to do some things for me first ;)
+  <img src="https://cosplaycalamity.files.wordpress.com/2014/12/ckjhmq9.jpg"/>
+  <span style="display:inline; position:absolute; top:30%; left:50%; color:white;" >
+	  I'll do it for you... But don't think it's because I like you! <br />
+	  I want you to do some things for me first ;)
+  </span>
   </span>
   <span index="3">
   who's the cutest kouhai here?
@@ -90,10 +98,38 @@ span {
    }
    
    // code for part 1
-   
+   var sortFile; // this is the variable where text will be loaded into
+   function handleFileSelect(evt) {
+   debugger;
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    f = files[0];
+	
+	var reader = new FileReader();
+	
+	reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        sortFile = evt.target.result;
+		advance();
+		setTimeout(advance, 5000); //advance to part 3
+      }
+    };
+	
+	reader.readAsText(f);
+    
+  }
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
    // code for part 2
    
+   // This is a text only section, advancing is done by a timeout in part 1
+   
    // code for part 3
+   
+   // code for part 4
+   
+   // code for part 5
    
    // code for bad end
    
