@@ -14,7 +14,7 @@ span {
 </style>
  <body style="background-color:midnightblue">
   <span index="nosupport">
-  Hi Senpai~ </br>
+  Hi Senpai~ <br />
   I'm going to hide until you update to a new browser.
   </span>
   <span index="1">
@@ -22,7 +22,10 @@ span {
 	Hello Senpai~ 
 	So you want your file sorted?
 	<br />
-	<div id="drop_zone" tyle="position: absolute;top: 40%;left: 40%;">Drop files here</div>
+	<input type="file" id="files" name="files[]" multiple style="
+    position: absolute;
+    top: 40%;
+    left: 40%;"/>
 	
   </span>
   <span index="2">
@@ -90,10 +93,36 @@ span {
    }
    
    // code for part 1
-   
+   function handleFileSelect(evt) {
+   debugger;
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    f = files[0];
+	
+	var reader = new FileReader();
+	
+	reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+        document.getElementById('byte_content').textContent = evt.target.result;
+        document.getElementById('byte_range').textContent = 
+            ['Read bytes: ', start + 1, ' - ', stop + 1,
+             ' of ', file.size, ' byte file'].join('');
+      }
+    };
+	
+	reader.read
+    
+  }
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
    // code for part 2
    
    // code for part 3
+   
+   // code for part 4
+   
+   // code for part 5
    
    // code for bad end
    
