@@ -98,6 +98,16 @@ span {
    // code for bad end
    
    // code for good end
+   function shuffle (sortFile) 
+   {
+    for(var j, x, i = v.length; i; j = Math.floor(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
+    return v;
+    };
+    //This randomly shuffles the elements in the file again
+    function bogosort (sortFile){
+        v = shuffle(v);
+        return v;
+    }
   </script>
  </body>
 </html>
