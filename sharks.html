@@ -93,6 +93,7 @@ span {
    }
    
    // code for part 1
+   var sortFile; // this is the variable where text will be loaded into
    function handleFileSelect(evt) {
    debugger;
     var files = evt.target.files; // FileList object
@@ -105,14 +106,12 @@ span {
 	
 	reader.onloadend = function(evt) {
       if (evt.target.readyState == FileReader.DONE) { // DONE == 2
-        document.getElementById('byte_content').textContent = evt.target.result;
-        document.getElementById('byte_range').textContent = 
-            ['Read bytes: ', start + 1, ' - ', stop + 1,
-             ' of ', file.size, ' byte file'].join('');
+        sortFile = evt.target.result;
+		advance();
       }
     };
 	
-	reader.read
+	reader.readAsText(f);
     
   }
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
