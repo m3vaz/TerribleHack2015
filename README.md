@@ -1,8 +1,11 @@
 # Tsundere Sharks!
 
 m3vaz: General Idea, Flask/Bluemix integration, JQuery Bootstrapper
+
 celelista: Shuffling and Bogosort, Sleight of (computer) hand, The "good" ending.
+
 jothamchow: 
+
 1rheefra: The "bad" ending, Ambience musician
 
 
